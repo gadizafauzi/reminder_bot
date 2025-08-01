@@ -1,7 +1,9 @@
 import sqlite3
 
+DB_NAME = "jadwal.db"
+
 def init_db():
-    conn = sqlite3.connect('jadwal.db')
+    conn = sqlite3.connect(DB_NAME)
     c = conn.cursor()
     c.execute('''
         CREATE TABLE IF NOT EXISTS jadwal (
@@ -15,7 +17,7 @@ def init_db():
     conn.close()
 
 def tambah_jadwal(user_id, waktu, pesan):
-    conn = sqlite3.connect('jadwal.db')
+    conn = sqlite3.connect(DB_NAME)
     c = conn.cursor()
     c.execute(
         "INSERT INTO jadwal (user_id, waktu, pesan) VALUES (?, ?, ?)",
@@ -25,7 +27,7 @@ def tambah_jadwal(user_id, waktu, pesan):
     conn.close()
 
 def ambil_semua_jadwal():
-    conn = sqlite3.connect('jadwal.db')
+    conn = sqlite3.connect(DB_NAME)
     c = conn.cursor()
     c.execute("SELECT * FROM jadwal")
     hasil = c.fetchall()
@@ -33,14 +35,10 @@ def ambil_semua_jadwal():
     return hasil
 
 def tambah_jadwal_default(user_id):
-    # tiga kali sehari
     jadwals = [
         ("Everyday 07:00", "Ohayou! Saatnya belajar Bahasa Inggris~ 💬 Hafalin 10 kosa kata baru hari ini. Ganbare! 💪 *Dattebayo!*"),
         ("Everyday 13:00", "Konnichiwa Gadiza~ Jangan lupa semangat belajar Bahasa Inggrisnya yaa...! Power up! 💫📘 *Yoshaa!*"),
-        ("Everyday 20.00", "Konbanwa~ waktunya review 📖⚔️ Hafalkan lagi 10 kosa kata. Ikuzooo!! 🔥 *Shinzou wo Sasageyo!*")
-
+        ("Everyday 20:00", "Konbanwa~ waktunya review 📖⚔️ Hafalkan lagi 10 kosa kata. Ikuzooo!! 🔥 *Shinzou wo Sasageyo!*")
     ]
     for waktu, pesan in jadwals:
         tambah_jadwal(user_id, waktu, pesan)
-
-        
