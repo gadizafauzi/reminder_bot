@@ -36,9 +36,9 @@ def ambil_semua_jadwal():
 
 def tambah_jadwal_default(user_id):
     jadwals = [
-        ("Everyday 07:00", "Ohayou! Saatnya belajar Bahasa Inggris~ 💬 Hafalin 10 kosa kata baru hari ini. Ganbare! 💪 *Dattebayo!*"),
-        ("Everyday 13:00", "Konnichiwa Gadiza~ Jangan lupa semangat belajar Bahasa Inggrisnya yaa...! Power up! 💫📘 *Yoshaa!*"),
-        ("Everyday 20:00", "Konbanwa~ waktunya review 📖⚔️ Hafalkan lagi 10 kosa kata. Ikuzooo!! 🔥 *Shinzou wo Sasageyo!*")
+        ("Everyday 07:00", "Ohayou! Gadiza, yuk langsung hafalin 15 kosa kata Bahasa Inggris. Ganbatte! *Dattebayo!*"),
+        ("Everyday 13:00", "Konnichiwa! Lanjut lagi hafalan 15 kosa kata baru ya, Gadiza. Ikuzo! *Yoshaa!*"),
+        ("Everyday 20:00", "Konbanwa. Saatnya review 30 kosa kata hari ini. Tetap semangat belajar, Gadiza! Ganbatte! *Shinzou wo Sasageyo!*")
     ]
     for waktu, pesan in jadwals:
         tambah_jadwal(user_id, waktu, pesan)
